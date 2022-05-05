@@ -16,8 +16,6 @@ jobs:
     steps: 
       - name: Clone Repository
         uses: actions/checkout@v2
-          with:
-            fetch-depth: 0 #Shallow clones should be disabled for a better relevancy analysis
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@v1.3
         env:
