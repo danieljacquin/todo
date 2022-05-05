@@ -1,7 +1,8 @@
-<<<<<<< HEAD
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=danieljacquin_todo&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=danieljacquin_todo)
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
@@ -72,6 +73,3 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
-=======
-# todo
->>>>>>> d3c502b9947c23add5d4de95f7a29367e9b9f02e
