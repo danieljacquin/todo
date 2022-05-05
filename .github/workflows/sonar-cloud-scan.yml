@@ -1,7 +1,6 @@
 
 
-name: SonarCloud-scan
-
+name: Build
 on:
   Push:
     branches:
