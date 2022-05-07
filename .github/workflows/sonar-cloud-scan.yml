@@ -2,6 +2,8 @@
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
+  push:
+  
   pull_request:
     branches:
       - develop
@@ -26,6 +28,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
+    if: github.repository == 'develop'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -44,6 +47,7 @@ jobs:
         path: dist
 
   test:
+    if: github.repository == 'develop'
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -63,6 +67,7 @@ jobs:
       run:  npm run test
 
   deployToDevelop:
+    if: github.repository == 'develop'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
@@ -72,6 +77,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          remote_branch: "develop"
 
   
