@@ -2,8 +2,6 @@
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull request.
-  push:
-    
   pull_request:
     branches:
       - develop
@@ -39,7 +37,7 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Build
-      run:  npm nest build
+      run:  npm run build
     - uses: actions/upload-artifact@v2  
       with:
         name: dist
