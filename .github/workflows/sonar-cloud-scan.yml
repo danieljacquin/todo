@@ -3,7 +3,7 @@ on:
   # Trigger analysis when pushing in master or pull requests, and when creating
   # a pull 
 
-  push:
+  pull_request_target:
     branches:
       - develop
       - main
