@@ -1,9 +1,9 @@
 
 on:
   # Trigger analysis when pushing in master or pull requests, and when creating
-  # a pull 
+  # a pull
 
-  pull_request:
+  pull_request_target:
     branches:
       - develop
       - main
@@ -24,7 +24,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    if: github.ref_name == 'develop' ||  github.ref_name == 'main'
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
         path: dist
 
   test:
-    if: github.ref_name == 'develop' ||  github.ref_name == 'main'
+    if: github.ref_name == 'main''
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +63,7 @@ jobs:
       run:  npm run test
 
   deploy:
-    if: github.ref_name == 'develop' ||  github.ref_name == 'main'
+    if: github.ref_name == 'main'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
