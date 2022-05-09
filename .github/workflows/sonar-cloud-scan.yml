@@ -43,7 +43,7 @@ jobs:
         path: dist
 
   test:
-    if: github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.base.ref == 'develop'
     needs: [build]
     runs-on: ubuntu-latest
     steps:
