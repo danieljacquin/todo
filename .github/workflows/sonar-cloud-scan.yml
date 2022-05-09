@@ -1,6 +1,6 @@
 
 on:
-  # Trigger analysis when pushing in master or pull requests, and when creating
+  # rigger analysis when pushing in master or pull requests, and when creating
   # a pull
 
   pull_request_target:
@@ -10,6 +10,7 @@ on:
 
 jobs:
   sonarcloud:
+    if: github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -63,7 +64,7 @@ jobs:
       run:  npm run test
 
   deploy:
-    if: github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.base.ref == 'develop'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
