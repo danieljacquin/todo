@@ -24,7 +24,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    if: github.ref_name == 'main'
+    if: github.event.pull_request.base.ref == 'develop'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -43,7 +43,7 @@ jobs:
         path: dist
 
   test:
-    if: github.ref_name == 'main''
+    if: github.event.pull_request.base.ref == 'main'
     needs: [build]
     runs-on: ubuntu-latest
     steps:
@@ -63,7 +63,7 @@ jobs:
       run:  npm run test
 
   deploy:
-    if: github.ref_name == 'main'
+    if: github.event.pull_request.base.ref == 'main'
     needs: [test]
     runs-on: ubuntu-latest
     steps:
