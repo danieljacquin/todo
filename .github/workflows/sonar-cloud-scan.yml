@@ -1,7 +1,10 @@
+  # video from midudev's youtube channel
+  # https://www.youtube.com/watch?v=sIhm4YOMK6Q&list=WL&index=122&t=6181s
+  # Github action  sonarcloud we used to do our workflow 
+  # https://github.com/marketplace/actions/sonarcloud-scan
+
 
 on:
-  # rigger analysis when pushing in master or pull requests, and when creating
-  # a pull
   push:
     branches-ignore:
       - main
@@ -73,8 +76,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+      - uses: amondnet/vercel-action@v20 #deploy
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}} #Must be unique in Heroku
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}} 
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
