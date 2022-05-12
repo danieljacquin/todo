@@ -19,7 +19,6 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const { email } = createUserDto;
-    console.log(email);
 
     const user = await this.findOneByEmail({email});
 
