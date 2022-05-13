@@ -1,4 +1,5 @@
 import { UserRole } from "src/modules/user-roles/entities/user-role.entity";
+import { Workspace } from "src/modules/workspaces/entities/workspace.entity";
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany } from "typeorm";
 
 @Entity()
@@ -28,5 +29,7 @@ export class User {
     @OneToMany(() => UserRole, (userRole)=> userRole.user)
     userRoles: UserRole[];
     
+    @OneToMany(() => Workspace, (workspace)=> workspace.user)
+    workspace: Workspace[];
 
 }
