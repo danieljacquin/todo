@@ -17,9 +17,7 @@ export class CategoriesService {
 
   async create(createCategoryDto: CreateCategoryDto): Promise<Category> {
     const created = await this.categoryRepository.create(createCategoryDto);
-    const saved = await this.categoryRepository.save(created);
-
-    return saved
+    return await this.categoryRepository.save(created);
   }
 
   async findAll(): Promise<any> {
@@ -45,15 +43,12 @@ export class CategoriesService {
       id: category.id,
       ...updateCategoryDto
     });
-    const saved = await this.categoryRepository.save(updated);
 
-    return saved;
+    return await this.categoryRepository.save(updated);
   }
 
   async remove(findOneDto: FindOneDto): Promise<Category> {
     const category = await this.findOne(findOneDto)
-    const deleted = await this.categoryRepository.remove(category);
-
-    return deleted;
+    return await this.categoryRepository.remove(category);
   }
 }
