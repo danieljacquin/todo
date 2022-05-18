@@ -26,9 +26,7 @@ export class UsersService {
 
     const created = await this.userRepository.create(createUserDto);
 
-    const saved = await this.userRepository.save(created);
-
-    return saved
+    return await this.userRepository.save(created);
   }
 
   async findAll(): Promise<any> {
@@ -65,24 +63,16 @@ export class UsersService {
 
     const user = await this.findOne(findOneDto)
 
-    console.log("paso por aqui");
-
     const updated = await this.userRepository.preload({
       id: user.id,
       ...updateUserDto
     });
 
-    const saved = await this.userRepository.save(updated);
-
-    return saved;
+    return await this.userRepository.save(updated);
   }
 
   async remove(findOneDto: FindOneDto): Promise<User> {
     const user = await this.findOne(findOneDto)
-
-
-    const deleted = await this.userRepository.remove(user);
-
-    return deleted;
+    return await this.userRepository.remove(user);
   }
 }
