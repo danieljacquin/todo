@@ -1,5 +1,6 @@
+import { TodoCategory } from "src/modules/todo-categories/entities/todo-category.entity";
 import { User } from "src/modules/users/entities/user.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Workspace {
@@ -21,5 +22,8 @@ export class Workspace {
 
     @ManyToOne(() => User, (user)=> user.workspace)
     user: User;
+
+    @OneToMany(() => TodoCategory, (todoCategory) => todoCategory.workspace)
+    todoCategories: TodoCategory[];
 
 }

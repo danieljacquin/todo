@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { TodoCategory } from "src/modules/todo-categories/entities/todo-category.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity()
 export class Category {
@@ -13,5 +14,8 @@ export class Category {
 
     @UpdateDateColumn({ name: 'updated_at'})
     cipdatedAt: Date
+
+    @OneToMany(() => TodoCategory, (todoCategory) => todoCategory.category)
+    todoCategories: TodoCategory[];
 
 }
