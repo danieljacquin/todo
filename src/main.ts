@@ -4,7 +4,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.APP_PORT || 3000);
-  Logger.debug(`server listening at 3000 `, 'main.ts')
+  app.enableCors();
+  await app.listen(process.env.PORT || 5000);
+  
+  Logger.debug(`server listening at 5000 `, 'main.ts')
 }
 bootstrap();
