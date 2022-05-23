@@ -3,7 +3,8 @@ import { RolesService } from './roles.service';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { Role } from './entities/role.entity';
-import { FindOneDto } from '../users/dto/find-one.dto';
+import { FindOneDto } from './dto/find-one.tdo';
+
 
 @Controller('roles')
 export class RolesController {

@@ -47,10 +47,12 @@ export class UsersService {
     return user || null ;
   }
 
-  findOneByEmail(findOneByEmailDto: FindOneByEmailDto): Promise<User | null>{
+  async findOneByEmail(findOneByEmailDto: FindOneByEmailDto): Promise<User | null>{
+    console.log("hello email")
     const { email } = findOneByEmailDto
+    console.log(email);
 
-    const user = this.userRepository.findOne({
+    const user = await this.userRepository.findOne({
       where: {
         email
       }
@@ -75,4 +77,5 @@ export class UsersService {
     const user = await this.findOne(findOneDto)
     return await this.userRepository.remove(user);
   }
+
 }
