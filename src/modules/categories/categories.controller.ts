@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
-import { FindOneDto } from '../users/dto/find-one.dto';
 import { CategoriesService } from './categories.service';
 import { CreateCategoryDto } from './dto/create-category.dto';
+import { FindOneDto } from './dto/find-one.tdo';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { Category } from './entities/category.entity';
 
