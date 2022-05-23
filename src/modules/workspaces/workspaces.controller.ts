@@ -1,34 +1,36 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { WorkspacesService } from './workspaces.service';
 import { CreateWorkspaceDto } from './dto/create-workspace.dto';
 import { UpdateWorkspaceDto } from './dto/update-workspace.dto';
+import { Workspace } from './entities/workspace.entity';
+import { FindOneDto } from '../users/dto/find-one.dto';
 
 @Controller('workspaces')
 export class WorkspacesController {
   constructor(private readonly workspacesService: WorkspacesService) {}
 
-  @Post()
-  create(@Body() createWorkspaceDto: CreateWorkspaceDto) {
+  @Post('create')
+  create(@Body() createWorkspaceDto: CreateWorkspaceDto): Promise<Workspace> {
     return this.workspacesService.create(createWorkspaceDto);
   }
 
-  @Get()
-  findAll() {
+  @Get('all')
+  findAll(): Promise<any> {
     return this.workspacesService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.workspacesService.findOne(+id);
+  findOne(@Param() findOneDto: FindOneDto): Promise<Workspace | null> {
+    return this.workspacesService.findOne(findOneDto);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateWorkspaceDto: UpdateWorkspaceDto) {
-    return this.workspacesService.update(+id, updateWorkspaceDto);
+  @Put(':id')
+  update(@Param()findOneDto: FindOneDto, @Body() updateWorkspaceDto: UpdateWorkspaceDto): Promise<Workspace> {
+    return this.workspacesService.update(findOneDto, updateWorkspaceDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.workspacesService.remove(+id);
+  remove(@Param() findOneDto: FindOneDto): Promise<Workspace> {
+    return this.workspacesService.remove(findOneDto);
   }
 }
