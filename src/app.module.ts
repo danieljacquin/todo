@@ -9,7 +9,8 @@ import { UsersModule } from  './modules/users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { WorkspacesModule } from './modules/workspaces/workspaces.module';
-import { TodoCategoriesModule } from './modules/todo-categories/todo-categories.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { TodoCategoriesModule } from './modules/todo-categories/todo-categories.module';p
 
 const NODE_ENV = process.env.NODE_ENV || 'local';
 const envFilePath = path.resolve(__dirname, `../.env.${NODE_ENV}`);
@@ -37,6 +38,7 @@ const envFilePath = path.resolve(__dirname, `../.env.${NODE_ENV}`);
     UserRolesModule,
     CategoriesModule,
     WorkspacesModule,
+    AuthModule
     TodoCategoriesModule
   ],
   controllers: [AppController],
