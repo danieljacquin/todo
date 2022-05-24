@@ -4,7 +4,9 @@ import { CreateTodoCategoryDto } from './dto/create-todo-category.dto';
 import { UpdateTodoCategoryDto } from './dto/update-todo-category.dto';
 import { TodoCategory } from './entities/todo-category.entity';
 import { FindOneDto } from '../users/dto/find-one.dto';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('todo-categories')
 @Controller('todo-categories')
 export class TodoCategoriesController {
   constructor(private readonly todoCategoriesService: TodoCategoriesService) {}
