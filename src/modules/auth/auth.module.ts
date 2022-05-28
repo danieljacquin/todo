@@ -16,7 +16,7 @@ import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
   imports:[UsersModule,PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '30m' },
+      signOptions: { expiresIn: '2h' },
     }),],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy, {
