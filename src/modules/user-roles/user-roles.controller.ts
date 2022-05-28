@@ -4,7 +4,9 @@ import { CreateUserRoleDto } from './dto/create-user-role.dto';
 import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 import { UserRole } from './entities/user-role.entity';
 import { FindOneDto } from './dto/find-one.tdo';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('user-roles')
 @Controller('user-roles')
 export class UserRolesController {
   constructor(private readonly userRolesService: UserRolesService) {}
