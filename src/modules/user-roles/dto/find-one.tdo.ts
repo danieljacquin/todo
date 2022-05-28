@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsNumberString } from "class-validator";
+import { IsNotEmpty,  IsNumberString } from "class-validator";
 
  export class FindOneDto {
 
