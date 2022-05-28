@@ -37,7 +37,7 @@ export class UserRolesService {
   }
 
   async findAll(): Promise<any> {
-    return await this.userRoleRepository.find() ;
+    return await this.userRoleRepository.find();
   }
 
   async findOne(findOneDto: FindOneDto): Promise<UserRole | null> {
@@ -67,6 +67,7 @@ export class UserRolesService {
     const role = await this.rolesService.findOne({id: rolId});
 
     const updated = await this.userRoleRepository.preload({
+      id: userRole.id,
       ...updateUserRoleDto,
       user,
       role
@@ -76,7 +77,8 @@ export class UserRolesService {
 
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} userRole`;
+  async remove(findOneDto: FindOneDto): Promise<UserRole> {
+    const userRoles = await this.findOne(findOneDto);
+    return await this.userRoleRepository.remove(userRoles);
   }
 }

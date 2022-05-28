@@ -8,9 +8,13 @@ export class UserRole {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @ManyToOne(() => User, (user) => user.userRoles)
+    @ManyToOne(() => User, (user) => user.userRoles,{
+        eager: true
+    })
     user: User;
 
-    @ManyToOne(() => Role, (role) => role.userRoles)
+    @ManyToOne(() => Role, (role) => role.userRoles,{
+        eager: true
+    })
     role: Role;
 }

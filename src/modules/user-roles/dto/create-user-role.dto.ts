@@ -1,12 +1,12 @@
-import { IsNotEmpty, IsNumber } from "class-validator";
+import { IsNotEmpty, IsNumberString } from "class-validator";
 
 export class CreateUserRoleDto {
 
     @IsNotEmpty()
-    @IsNumber()
+    @IsNumberString()
     userId: number;
 
     @IsNotEmpty()
-    @IsNumber()
+    @IsNumberString()
     rolId: number;
 }
