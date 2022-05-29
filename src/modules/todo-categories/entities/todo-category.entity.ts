@@ -14,10 +14,14 @@ export class TodoCategory {
     @UpdateDateColumn({ name: 'updated_at'})
     cipdatedAt: Date
 
-    @ManyToOne(() => Category, (category) => category.todoCategories)
+    @ManyToOne(() => Category, (category) => category.todoCategories, {
+        eager: true
+    })
     category: Category;
 
-    @ManyToOne(() => Workspace, (workspace) => workspace.todoCategories)
+    @ManyToOne(() => Workspace, (workspace) => workspace.todoCategories,{
+        eager: true
+    })
     workspace: Workspace;
     
 }
