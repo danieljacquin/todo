@@ -11,12 +11,12 @@ import { ApiTags } from '@nestjs/swagger';
 export class UserRolesController {
   constructor(private readonly userRolesService: UserRolesService) {}
 
-  @Post()
+  @Post('create')
   create(@Body() createUserRoleDto: CreateUserRoleDto): Promise<UserRole> {
     return this.userRolesService.create(createUserRoleDto);
   }
 
-  @Get()
+  @Get('all')
   findAll(): Promise<any> {
     return this.userRolesService.findAll();
   }
@@ -32,7 +32,7 @@ export class UserRolesController {
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userRolesService.remove(+id);
+  remove(@Param() findOneDto: FindOneDto): Promise<UserRole> {
+    return this.userRolesService.remove(findOneDto);
   }
 }
