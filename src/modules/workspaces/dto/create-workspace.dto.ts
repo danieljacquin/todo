@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsString, MaxLength} from "class-validator";
+import { IsNotEmpty, IsNumberString, IsString, MaxLength} from "class-validator";
 
 export class CreateWorkspaceDto {
     
@@ -17,7 +17,7 @@ export class CreateWorkspaceDto {
 
     @ApiProperty()
     @IsNotEmpty()
-    @IsNumber()
+    @IsNumberString()
     readonly userId: number;
 
 }

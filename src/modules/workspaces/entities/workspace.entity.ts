@@ -20,7 +20,9 @@ export class Workspace {
     @UpdateDateColumn({ name: 'updated_at'})
     cipdatedAt: Date
 
-    @ManyToOne(() => User, (user)=> user.workspace)
+    @ManyToOne(() => User, (user)=> user.workspace, {
+        eager: true
+    })
     user: User;
 
     @OneToMany(() => TodoCategory, (todoCategory) => todoCategory.workspace)
