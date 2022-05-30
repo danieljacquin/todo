@@ -3,6 +3,7 @@ import { Workspace } from "src/modules/workspaces/entities/workspace.entity";
 import { Column, Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, OneToMany, BeforeInsert, BeforeUpdate } from "typeorm";
 import * as bcrypt from "bcrypt";
 import { ApiProperty } from "@nestjs/swagger";
+import { Task } from "src/modules/tasks/entities/task.entity";
 
 @Entity()
 export class User {
