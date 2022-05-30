@@ -11,6 +11,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { WorkspacesModule } from './modules/workspaces/workspaces.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { TodoCategoriesModule } from './modules/todo-categories/todo-categories.module';
+import { TasksModule } from './modules/tasks/tasks.module';
 
 const NODE_ENV = process.env.NODE_ENV || 'local';
 const envFilePath = path.resolve(__dirname, `../.env.${NODE_ENV}`);
@@ -39,7 +40,8 @@ const envFilePath = path.resolve(__dirname, `../.env.${NODE_ENV}`);
     CategoriesModule,
     WorkspacesModule,
     AuthModule,
-    TodoCategoriesModule
+    TodoCategoriesModule,
+    TasksModule
   ],
   controllers: [AppController],
   providers: [AppService],
